@@ -66,13 +66,13 @@ namespace ReModCE.Core
 
             frames = player._playerNet.field_Private_Byte_0;
             ping = player._playerNet.field_Private_Byte_1;
-            string text = "<color=green>Stable</color>";
+            string status = "<color=green>Stable</color>";
             string customrank = CustomRank(UserID);
             if (noUpdateCount > 200)
-                text = "<color=yellow>Lagging</color>";
+                status = "<color=yellow>Lagging</color>";
             if (noUpdateCount > 500)
-                text = "<color=red>Crashed</color>";
-            statsText.text = $"{GetRank(player.GetAPIUser())} {customrank} [{player.GetPlatform()}] |" + $"{(player.GetIsMaster() ? " | [<color=#0352ff>HOST</color>] |" : "")}" + $" [{text}] |" + $" [FPS: {player.GetFramesColord()}] |" + $" [Ping: {player.GetPingColord()}] " + $" {(player.ClientDetect() ? "| [<color=red>ClientUser</color>]" : "")}";
+                status = "<color=red>Crashed</color>";
+            statsText.text = $"{GetRank(player.GetAPIUser())} | {customrank}  {player.GetPlatform()}" + $"{(player.GetIsMaster() ? "  <color=#0352ff>HOST</color>" : "")}" + $"  {status}" + $" | F: {player.GetFramesColord()}  P: {player.GetPingColord()}" + $"{(player.ClientDetect() ? " | <color=red>ClientUser</color>" : "")}";
         }
 
         string CustomRank(string id)
@@ -96,31 +96,31 @@ namespace ReModCE.Core
         {
             if (apiUser.tags.Contains("system_legend"))
             {
-                return "[<color=#303030>Legend</color>] |";
+                return "<color=#303030>Legend</color>";
             }
             else if (apiUser.hasLegendTrustLevel)
             {
-                return "[<color=#F095BE>Veteran</color>] |";
+                return "<color=#F095BE>Veteran</color>";
             }
             else if (apiUser.hasVeteranTrustLevel)
             {
-                return "[<color=#8143E6>Trusted</color>] |";
+                return "<color=#8143E6>Trusted</color>";
             }
             else if (apiUser.hasTrustedTrustLevel)
             {
-                return "[<color=#FF7B42>Known</color>] |";
+                return "<color=#FF7B42>Known</color>";
             }
             else if (apiUser.hasKnownTrustLevel)
             {
-                return "[<color=#2BCF5C>User</color>] |";
+                return "<color=#2BCF5C>User</color>";
             }
             else if (apiUser.hasBasicTrustLevel)
             {
-                return "[<color=#1778FF>New User</color>] |";
+                return "<color=#1778FF>New User</color>";
             }
             else
             {
-                return "[Visitor] |";
+                return "Visitor";
             }
         }
     }

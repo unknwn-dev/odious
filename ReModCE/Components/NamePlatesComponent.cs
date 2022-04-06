@@ -19,6 +19,8 @@ namespace ReModCE.Components
     {
         private ConfigValue<bool> NameplatesEnabled;
         private static ReMenuToggle _NameplatesToggled;
+
+
         public NamePlatesComponent()
         {
             NameplatesEnabled = new ConfigValue<bool>(nameof(NameplatesEnabled), false);
