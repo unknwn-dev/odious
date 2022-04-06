@@ -72,7 +72,7 @@ namespace ReModCE.Core
                 text = "<color=yellow>Lagging</color>";
             if (noUpdateCount > 500)
                 text = "<color=red>Crashed</color>";
-            statsText.text = $"{customrank} [{player.GetPlatform()}] |" + $"{(player.GetIsMaster() ? " | [<color=#0352ff>HOST</color>] |" : "")}" + $" [{text}] |" + $" [FPS: {player.GetFramesColord()}] |" + $" [Ping: {player.GetPingColord()}] " + $" {(player.ClientDetect() ? "| [<color=red>ClientUser</color>]" : "")}";
+            statsText.text = $"{GetRank(player.GetAPIUser())} {customrank} [{player.GetPlatform()}] |" + $"{(player.GetIsMaster() ? " | [<color=#0352ff>HOST</color>] |" : "")}" + $" [{text}] |" + $" [FPS: {player.GetFramesColord()}] |" + $" [Ping: {player.GetPingColord()}] " + $" {(player.ClientDetect() ? "| [<color=red>ClientUser</color>]" : "")}";
         }
 
         string CustomRank(string id)
@@ -90,6 +90,38 @@ namespace ReModCE.Core
                 rank = "";
             }
             return rank;
+        }
+
+        string GetRank(VRC.Core.APIUser apiUser)
+        {
+            if (apiUser.tags.Contains("system_legend"))
+            {
+                return "[<color=#303030>Legend</color>] |";
+            }
+            else if (apiUser.hasLegendTrustLevel)
+            {
+                return "[<color=#F095BE>Veteran</color>] |";
+            }
+            else if (apiUser.hasVeteranTrustLevel)
+            {
+                return "[<color=#8143E6>Trusted</color>] |";
+            }
+            else if (apiUser.hasTrustedTrustLevel)
+            {
+                return "[<color=#FF7B42>Known</color>] |";
+            }
+            else if (apiUser.hasKnownTrustLevel)
+            {
+                return "[<color=#2BCF5C>User</color>] |";
+            }
+            else if (apiUser.hasBasicTrustLevel)
+            {
+                return "[<color=#1778FF>New User</color>] |";
+            }
+            else
+            {
+                return "[Visitor] |";
+            }
         }
     }
 }
