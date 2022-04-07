@@ -54,13 +54,14 @@ namespace ReModCE.Components
 
             try
             {
-                for (int i = 0; i < PlayerWrapper.GetAllPlayers().Length; i++)
+                List<Player> Players = new List<Player>(PlayerWrapper.GetAllPlayers());
+
+                for (int i = 0; i < Players.Count; i++)
                 {
-                    Player player = PlayerWrapper.GetAllPlayers()[i];
-                    MelonLoader.MelonLogger.Log(PlayerWrapper.GetAPIUser(player).username + " tags : " + string.Join(",", PlayerWrapper.GetAPIUser(player).tags.ToArray()));
+                    Player player = Players[i];
                     NamePlates customNameplate = player.transform.Find("Player Nameplate/Canvas/Nameplate").gameObject.AddComponent<NamePlates>();
                     customNameplate.player = player;
-                    bool flag = i >= PlayerWrapper.GetAllPlayers().Length;
+                    bool flag = i >= Players.Count;
                     if (flag)
                     {
                         break;
