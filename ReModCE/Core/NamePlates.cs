@@ -72,7 +72,7 @@ namespace ReModCE.Core
                 status = "<color=yellow>Lagging</color>";
             if (noUpdateCount > 500)
                 status = "<color=red>Crashed</color>";
-            statsText.text = $"{GetRank(player.GetAPIUser())} | {customrank}  {player.GetPlatform()}" + $"{(player.GetIsMaster() ? "  <color=#0352ff>HOST</color>" : "")}" + $"  {status}" + $" | F: {player.GetFramesColord()}  P: {player.GetPingColord()}" + $"{(player.ClientDetect() ? " | <color=red>ClientUser</color>" : "")}";
+            statsText.text = $"{GetRank(player.GetAPIUser())} |{customrank} {player.GetPlatform()}" + $"{(player.GetIsMaster() ? "  <color=#0352ff>HOST</color>" : "")}" + $"  {status}" + $" | F: {player.GetFramesColord()}  P: {player.GetPingColord()}" + $"{(player.ClientDetect() ? " | <color=red>ClientUser</color>" : "")}";
         }
 
         string CustomRank(string id)
@@ -83,7 +83,7 @@ namespace ReModCE.Core
             // note to self: this will get really long but it isn't as bad as area51 so ¯\_(ツ)_/¯
             if (id == "usr_f0b2d38d-6f62-4d0e-9820-e0e741b574d4" || id == "usr_5232c391-d337-42b7-89dc-df2f1947c342")
             {
-                rank = "[<color=#8F9CE6>Odious Staff</color>] |";
+                rank = " <color=#8F9CE6>Odious Staff</color> ";
             }
             else
             {
@@ -94,15 +94,7 @@ namespace ReModCE.Core
 
         string GetRank(VRC.Core.APIUser apiUser)
         {
-            if (apiUser.tags.Contains("system_legend"))
-            {
-                return "<color=#303030>Legend</color>";
-            }
-            else if (apiUser.hasLegendTrustLevel)
-            {
-                return "<color=#F095BE>Veteran</color>";
-            }
-            else if (apiUser.hasVeteranTrustLevel)
+            if (apiUser.hasVeteranTrustLevel)
             {
                 return "<color=#8143E6>Trusted</color>";
             }
