@@ -18,8 +18,8 @@ namespace ReModCE.Loader
 
     public static class BuildInfo
     {
-        public const string Name = "Odious Enchanced Edition by Unknown*******";
-        public const string Author = "Unknown*******";
+        public const string Name = "Odious";
+        public const string Author = "Unixian";
         public const string Company = null;
         public const string Version = "1.0.0";
         public const string DownloadLink = "https://discord.gg/g84N8yXF7K";
@@ -60,7 +60,7 @@ namespace ReModCE.Loader
                 true);
 
             DownloadFromGitHub("ReMod.Core", out _);
-            DownloadFromGitHub("Odious Enchanced Edition by Unknown*******", out var assembly);
+            DownloadFromGitHub("Odious", out var assembly);
 
             if (assembly == null)
                 return;

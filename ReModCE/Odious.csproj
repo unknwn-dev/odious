@@ -278,6 +278,7 @@
     <Compile Include="AvatarPostProcess\AntiCrashShaderPostProcess.cs" />
     <Compile Include="Components\AntiAvatarCrashComponent.cs" />
     <Compile Include="Components\AvatarFavComponent.cs" />
+    <Compile Include="Components\CameraFixComponent.cs" />
     <Compile Include="Components\ClearConsoleComponent.cs" />
     <Compile Include="Components\CloneByComponent.cs" />
     <Compile Include="Components\CursorColorComponent.cs" />
