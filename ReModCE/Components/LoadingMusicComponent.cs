@@ -145,7 +145,6 @@ namespace ReModCE.Components
             string[] links = new string[]
             {
                 //"https://github.com/gifmafia/dGhlYmVuZHN3aXRobWU/raw/main/dark%20age.ogg",
-                "https://upload.wikimedia.org/wikipedia/commons/f/ff/Anthem_of_Ukraine_instrumental.ogg"
             };
 
             while (bg == null)
