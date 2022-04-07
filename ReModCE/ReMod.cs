@@ -380,7 +380,7 @@ namespace ReModCE
         {
             ReLogger.Msg("Initializing UI...");
 
-            _uiManager = new UiManager("<color=#8c99e1>Odious [Experimental]</color>", ResourceManager.GetSprite("remodce.remod"));
+            _uiManager = new UiManager("<color=#66a5e3>Odious</color> <color=#e3dd66>Ukraine</color>", ResourceManager.GetSprite("remodce.remod"));
             WingMenu = ReMirroredWingMenu.Create("Odious", "Open the Odious menu", ResourceManager.GetSprite("remodce.remod"));
 
             _uiManager.MainMenu.AddMenuPage("Movement", "Access movement related settings", ResourceManager.GetSprite("remodce.running"));
@@ -390,7 +390,7 @@ namespace ReModCE
             visualPage.AddCategory("Wireframe");
             visualPage.AddCategory("Nametags");
             visualPage.AddCategory("Cursor");
-            visualPage.AddCategory("Menu");
+            //visualPage.AddCategory("Menu");
 
             _uiManager.MainMenu.AddMenuPage("Dynamic Bones", "Access your global dynamic bone settings", ResourceManager.GetSprite("remodce.bone"));
             _uiManager.MainMenu.AddMenuPage("Avatars", "Access avatar related settings", ResourceManager.GetSprite("remodce.hanger"));
