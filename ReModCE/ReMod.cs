@@ -380,6 +380,7 @@ namespace ReModCE
         {
             ReLogger.Msg("Initializing UI...");
 
+
             _uiManager = new UiManager("<color=#66a5e3>Odious</color>", ResourceManager.GetSprite("remodce.remod"));
             WingMenu = ReMirroredWingMenu.Create("Odious", "Open the Odious menu", ResourceManager.GetSprite("remodce.remod"));
 
