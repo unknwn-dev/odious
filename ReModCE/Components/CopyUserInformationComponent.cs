@@ -22,7 +22,7 @@ namespace ReModCE.Components
                     return;
 
                 GUIUtility.systemCopyBuffer = user.GetUserID();
-            }, ResourceManager.GetSprite("remodce.copy"));
+            }, ResourceManager.GetSprite("remodce.tools"));
 
             uiManager.TargetMenu.AddButton("Copy Avatar ID", "Copies the selected users Avatar ID", () =>
             {
@@ -38,7 +38,7 @@ namespace ReModCE.Components
                     return;
 
                 GUIUtility.systemCopyBuffer = apiAvatar.id;
-            }, ResourceManager.GetSprite("remodce.copy"));
+            }, ResourceManager.GetSprite("remodce.arms-up"));
         }
 
         public override void OnUiManagerInitEarly()

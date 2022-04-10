@@ -17,6 +17,8 @@ namespace ReModCE.Core
         private static MelonPreferences_Entry<string> _InstanceIdToSpoof;
         private static MelonPreferences_Entry<bool> _WorldSpoofWarn;
         private static MelonPreferences_Entry<bool> _WorldSpoofEnabled;
+        private static MelonPreferences_Entry<string> _UserIdToSpoof;
+        private static MelonPreferences_Entry<bool> _UserSpoofEnabled;
         private static MelonPreferences_Entry<bool> _HWIDSpoof;
 
         public static void Register()
@@ -44,6 +46,12 @@ namespace ReModCE.Core
                 true);
             _WorldSpoofWarn = category.CreateEntry("WorldSpoofWarn", false, "World Spoofing",
                 "Nags you about the world you are spoofing, just incase. WorldSpoof must be enabled for this to work.",
+                true);
+            _UserSpoofEnabled = category.CreateEntry("UserSpoofEnabled", false, "User Spoofing",
+                "When enabled, will spoof the world to a selected World ID (by default, VRChat Home World with instance id 1337.) Configurable under WorldIdToSpoof and InstanceIdToSpoof.",
+                true);
+            _UserIdToSpoof = category.CreateEntry("UserIdToSpoof", "User Spoofing", "",
+                "World ID to spoof, WorldSpoof must be enabled for this to work.",
                 true);
             _HWIDSpoof = category.CreateEntry("HWIDSpoof", false, "HWID Spoofing",
                 "Spoofs your hardware identifier to prevent bans from VRChat.", true);

@@ -47,6 +47,7 @@ namespace ReModCE.Components
             _WorldSpoofToggled = spoofingMenu.AddToggle("World Spoof", "Will spoof your world to be something else than it actually is, (by default it is VRChat Home World w/ instance id 1337. Useful for tricking stalkers or for fun.", b => { WorldSpoofEnabled.SetValue(b); WorldSpoof(b); }, WorldSpoofEnabled);
             _WorldSpoofNagToggled = spoofingMenu.AddToggle("World Spoof Warn", "Will nag you about your world being spoofed every ~30 seconds.", b => { WorldSpoofNagEnabled.SetValue(b); WorldSpoofNag(b); }, WorldSpoofNagEnabled);
 
+            ReModCE.WingExploitsMenu.AddToggle("World Spoof", "Will spoof your world to be something else than it actually is, (by default it is VRChat Home World w/ instance id 1337. Useful for tricking stalkers or for fun.", b => { WorldSpoofEnabled.SetValue(b); WorldSpoof(b); }, WorldSpoofEnabled);
 
             _WorldIDSpoof = spoofingMenu.AddButton("World ID to Spoof",
                 "Sets the world ID for world spoofing, by default is the VRChat home world.",

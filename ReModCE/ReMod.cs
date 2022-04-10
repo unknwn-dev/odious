@@ -48,6 +48,9 @@ namespace ReModCE
         private static ConfigManager _configManager;
 
         public static ReMirroredWingMenu WingMenu;
+        public static ReMirroredWingMenu WingCheatsMenu;
+        public static ReMirroredWingMenu WingExploitsMenu;
+        public static ReMirroredWingMenu WingUtilityMenu;
         public static bool IsEmmVRCLoaded { get; private set; }
         public static bool IsRubyLoaded { get; private set; }
         public static bool IsNocturnalLoaded { get; private set; }
@@ -73,6 +76,8 @@ namespace ReModCE
         private static MelonPreferences_Entry<string> _InstanceIdToSpoof;
         private static MelonPreferences_Entry<bool> _WorldSpoofWarn;
         private static MelonPreferences_Entry<bool> _WorldSpoofEnabled;
+        private static MelonPreferences_Entry<bool> _UserSpoofEnabled;
+        private static MelonPreferences_Entry<string> _UserIdToSpoof;
         private static MelonPreferences_Entry<bool> _HWIDSpoof;
         private static Il2CppSystem.Object clientHWID = null;
         private static Il2CppSystem.Object clientHWIDOriginal = null;
@@ -383,6 +388,9 @@ namespace ReModCE
 
             _uiManager = new UiManager("<color=#66a5e3>Odious</color>", ResourceManager.GetSprite("remodce.remod"));
             WingMenu = ReMirroredWingMenu.Create("Odious", "Open the Odious menu", ResourceManager.GetSprite("remodce.remod"));
+            WingCheatsMenu = WingMenu.AddSubMenu("Cheats", "Some stuff like esp or noclip", ResourceManager.GetSprite("remodce.tools"));
+            WingExploitsMenu = WingMenu.AddSubMenu("Exploits", "ha-ha funny vrchat", ResourceManager.GetSprite("remodce.exploits"));
+            WingUtilityMenu = WingMenu.AddSubMenu("Utility", "Utilities", ResourceManager.GetSprite("remodce.tools"));
 
             _uiManager.MainMenu.AddMenuPage("Movement", "Access movement related settings", ResourceManager.GetSprite("remodce.running"));
 
@@ -391,7 +399,6 @@ namespace ReModCE
             visualPage.AddCategory("Wireframe");
             visualPage.AddCategory("Nametags");
             visualPage.AddCategory("Cursor");
-            //visualPage.AddCategory("Menu");
 
             _uiManager.MainMenu.AddMenuPage("Dynamic Bones", "Access your global dynamic bone settings", ResourceManager.GetSprite("remodce.bone"));
             _uiManager.MainMenu.AddMenuPage("Avatars", "Access avatar related settings", ResourceManager.GetSprite("remodce.hanger"));
@@ -399,6 +406,8 @@ namespace ReModCE
             var utilityPage = _uiManager.MainMenu.AddCategoryPage("Utility", "Access miscellaneous settings", ResourceManager.GetSprite("remodce.tools"));
             utilityPage.AddCategory("Quality of Life");
             utilityPage.AddCategory("VRChat News");
+            utilityPage.AddCategory("Ram Cleaner");
+            utilityPage.AddCategory("Comfort menu");
 
             _uiManager.MainMenu.AddMenuPage("Logging", "Access logging related settings", ResourceManager.GetSprite("remodce.log"));
             _uiManager.MainMenu.AddMenuPage("Hotkeys", "Access hotkey related settings", ResourceManager.GetSprite("remodce.keyboard"));
@@ -417,6 +426,7 @@ namespace ReModCE
             var spoofingPage = _uiManager.MainMenu.AddCategoryPage("Spoofing", "Access settings related to spoofing certain things", ResourceManager.GetSprite("remodce.spoofing"));
             spoofingPage.AddCategory("Hardware");
             spoofingPage.AddCategory("Worlds");
+            spoofingPage.AddCategory("User");
 
             foreach (var m in Components)
             {
@@ -676,6 +686,14 @@ namespace ReModCE
                 _InstanceIdToSpoof = (MelonPreferences_Entry<string>)category.GetEntry("InstanceIdToSpoof");
                 _WorldSpoofWarn = (MelonPreferences_Entry<bool>)category.GetEntry("WorldSpoofWarn");
 
+                _UserSpoofEnabled = (MelonPreferences_Entry<bool>)category.GetEntry("UserSpoofEnabled");
+                _UserIdToSpoof = (MelonPreferences_Entry<string>)category.GetEntry("UserIdToSpoof");
+
+                if (_UserIdToSpoof.Value.Contains("usr_") && _UserSpoofEnabled.Value)
+                {
+                    __2["userId"] = _UserIdToSpoof.Value;
+                }
+
                 if (_WorldSpoof.Value == false || _WorldSpoofEnabled.Value == false)
                 {
                     return true;
@@ -683,6 +701,7 @@ namespace ReModCE
 
                 if (__0.Contains("visits") || __0.Contains("joins"))
                 {
+
                     // idiot proof checks ig
                     if (!_WorldIdToSpoof.Value.Contains("wrld_"))
                     {

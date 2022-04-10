@@ -25,7 +25,7 @@ namespace ReModCE.Components
                 FixCameraDistance
                 );
 
-            ReModCE.WingMenu.AddButton("Cam Dist", "Camera distance draw fix.", FixCameraDistance, ResourceManager.GetSprite("remodce.eye"), false);
+            ReModCE.WingUtilityMenu.AddButton("Cam Dist", "Camera distance draw fix.", FixCameraDistance, ResourceManager.GetSprite("remodce.eye"), false);
         }
 
         private void FixCameraDistance()

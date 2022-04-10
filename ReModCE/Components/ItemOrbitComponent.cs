@@ -18,10 +18,12 @@ namespace ReModCE.Components
 {
     internal sealed class ItemOrbitComponent : ModComponent
     {
+        public static VRC_Pickup[] vrc_Pickups;
+
         private ConfigValue<bool> ItemOrbitEnabled;
         private ReMenuToggle _itemOrbitEnabled;
         private GameObject target;
-        public static VRC_Pickup[] vrc_Pickups;
+        private Player TargetPlayer;
 
         public ItemOrbitComponent()
         {
@@ -35,12 +37,29 @@ namespace ReModCE.Components
 
             var menu = uiManager.MainMenu.GetCategoryPage("Exploits").GetCategory("ItemOrbit");
             _itemOrbitEnabled = menu.AddToggle("Item Orbit",
-                "Makes all Pickups spin arround you.", ItemOrbit,
+                "Makes all Pickups spin arround selected player.", ItemOrbit,
                 ItemOrbitEnabled);
+
+            ReModCE.WingExploitsMenu.AddToggle("Item Orbit",
+                "Makes all Pickups spin arround selected player.", ItemOrbit,
+                ItemOrbitEnabled);
+
+            uiManager.TargetMenu.AddButton("Item Orbit To", "Select player as target to item orbit", SelectTarget);
+        }
+
+        private void SelectTarget()
+        {
+            var user = QuickMenuEx.SelectedUserLocal.field_Private_IUser_0;
+            if (user == null)
+                return;
+            TargetPlayer = PlayerManager.field_Private_Static_PlayerManager_0.GetPlayer(user.prop_String_0);
         }
 
         private void ItemOrbit(bool enable)
         {
+            if (enable)
+                initWorldProps();
+
             ItemOrbitEnabled.SetValue(enable);
         }
 
@@ -52,8 +71,15 @@ namespace ReModCE.Components
                 {
                     target = new GameObject();
                 }
-                target.transform.position = Player.prop_Player_0.transform.position + new Vector3(0f, 1f, 0f);
+
+                if(TargetPlayer == null && Player.prop_Player_0 != null)
+                {
+                    TargetPlayer = Player.prop_Player_0;
+                }
+
+                target.transform.position = TargetPlayer.transform.position + new Vector3(0f, 1f, 0f);
                 target.transform.Rotate(new Vector3(0f, 380f * Time.time * 1.5f, 0f));
+
                 for (int i = 0; i < vrc_Pickups.Length; i++)
                 {
                     VRC_Pickup vrc_Pickup = vrc_Pickups[i];
@@ -69,7 +95,7 @@ namespace ReModCE.Components
 
         public override void OnPlayerJoined(Player player)
         {
-            if (player == Player.prop_Player_0)
+            if (player == TargetPlayer)
             {
                 initWorldProps();
             }

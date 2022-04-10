@@ -71,7 +71,7 @@ namespace ReModCE.Components
                 ToggleESP(b);
             }, ESPEnabled);
 
-            _espMirroredToggle = ReModCE.WingMenu.AddToggle("ESP", "Enable/Disable ESP", ESPEnabled.SetValue, ESPEnabled);
+            _espMirroredToggle = ReModCE.WingCheatsMenu.AddToggle("ESP", "Enable/Disable ESP", ESPEnabled.SetValue, ESPEnabled);
             
             _friendsColorButton = menu.AddButton($"<color=#{FriendsColor.Value.ToHex()}>Friends</color> Color",
                 $"Set your <color=#{FriendsColor.Value.ToHex()}>friends</color> highlight color",
