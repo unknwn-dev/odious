@@ -407,6 +407,7 @@ namespace ReModCE
             exploitsPage.AddCategory("USpeak");
             exploitsPage.AddCategory("Events");
             exploitsPage.AddCategory("Items");
+            exploitsPage.AddCategory("ItemOrbit");
             exploitsPage.AddCategory("Avatar");
 
             var safetyPage = _uiManager.MainMenu.AddCategoryPage("Safety", "Access protection/safety settings", ResourceManager.GetSprite("remodce.safety"));
