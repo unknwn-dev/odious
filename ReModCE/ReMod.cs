@@ -412,12 +412,17 @@ namespace ReModCE
             _uiManager.MainMenu.AddMenuPage("Logging", "Access logging related settings", ResourceManager.GetSprite("remodce.log"));
             _uiManager.MainMenu.AddMenuPage("Hotkeys", "Access hotkey related settings", ResourceManager.GetSprite("remodce.keyboard"));
 
-            var exploitsPage = _uiManager.MainMenu.AddCategoryPage("Exploits", "haha funny vrchat game", ResourceManager.GetSprite("remodce.exploits"));
+            var exploitsPage = _uiManager.MainMenu.AddCategoryPage("Exploits", "haha funny vrchat", ResourceManager.GetSprite("remodce.exploits"));
             exploitsPage.AddCategory("USpeak");
             exploitsPage.AddCategory("Events");
             exploitsPage.AddCategory("Items");
             exploitsPage.AddCategory("ItemOrbit");
             exploitsPage.AddCategory("Avatar");
+
+            var worldExploitsPage = _uiManager.MainMenu.AddCategoryPage("World Exploits", "haha funny vrchat game", ResourceManager.GetSprite("remodce.exploits"));
+            worldExploitsPage.AddCategory("JustBClub");
+            worldExploitsPage.AddCategory("Murder4");
+            worldExploitsPage.AddCategory("AmongUs");
 
             var safetyPage = _uiManager.MainMenu.AddCategoryPage("Safety", "Access protection/safety settings", ResourceManager.GetSprite("remodce.safety"));
             safetyPage.AddCategory("Avatars");

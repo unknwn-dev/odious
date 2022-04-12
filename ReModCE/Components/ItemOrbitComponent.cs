@@ -78,7 +78,7 @@ namespace ReModCE.Components
                 }
 
                 target.transform.position = TargetPlayer.transform.position + new Vector3(0f, 1f, 0f);
-                target.transform.Rotate(new Vector3(0f, 380f * Time.time * 1.5f, 0f));
+                target.transform.Rotate(new Vector3(380f * Time.time * 1.5f, 380f * Time.time * 1.5f, 380f * Time.time * 1.5f));
 
                 for (int i = 0; i < vrc_Pickups.Length; i++)
                 {

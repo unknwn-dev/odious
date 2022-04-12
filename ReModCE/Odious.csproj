@@ -279,6 +279,9 @@
     <Compile Include="Components\AntiAvatarCrashComponent.cs" />
     <Compile Include="Components\AvatarFavComponent.cs" />
     <Compile Include="Components\CameraFixComponent.cs" />
+    <Compile Include="Components\ExploitMurder4Component.cs" />
+    <Compile Include="Components\ExploitJustBClubComponent.cs" />
+    <Compile Include="Components\ExploitAmongUsComponent.cs" />
     <Compile Include="Components\UserSpoofComponent.cs" />
     <Compile Include="Components\ComfortMenuComponent.cs" />
     <Compile Include="Components\RamCleanerComponent.cs" />
@@ -293,7 +296,6 @@
     <Compile Include="Components\MenuComponent.cs" />
     <Compile Include="Components\NamePlatesComponent.cs" />
     <Compile Include="Components\PhotonAntiCrashComponent.cs" />
-    <Compile Include="Components\PlayerListComponent.cs" />
     <Compile Include="Components\UILoggerComponent.cs" />
     <Compile Include="Components\VRCNewsRemoveComponent.cs" />
     <Compile Include="Components\WorldSpoofComponent.cs" />
