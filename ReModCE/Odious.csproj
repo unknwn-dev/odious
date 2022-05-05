@@ -310,6 +310,8 @@
     <Compile Include="Core\ShaderProxy.cs" />
     <Compile Include="Core\ShaderUtils.cs" />
     <Compile Include="Core\TSAC.cs" />
+    <Compile Include="Exploits\Udon.cs" />
+    <Compile Include="Exploits\TargetCrash.cs" />
     <Compile Include="Exploits\Event6.cs" />
     <Compile Include="SDK\Utils\GeneralUtils.cs" />
     <Compile Include="SDK\GeneralWrapper.cs" />

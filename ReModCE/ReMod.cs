@@ -418,6 +418,8 @@ namespace ReModCE
             exploitsPage.AddCategory("Items");
             exploitsPage.AddCategory("ItemOrbit");
             exploitsPage.AddCategory("Avatar");
+            exploitsPage.AddCategory("TargetCrash");
+            exploitsPage.AddCategory("Udon");
 
             var worldExploitsPage = _uiManager.MainMenu.AddCategoryPage("World Exploits", "haha funny vrchat game", ResourceManager.GetSprite("remodce.exploits"));
             worldExploitsPage.AddCategory("JustBClub");

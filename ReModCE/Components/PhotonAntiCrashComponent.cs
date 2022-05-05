@@ -95,9 +95,9 @@ namespace ReModCE.Components
 
             try
             {
-                //int Sender = __0.sender;
-                //var player = PlayerManager.field_Private_Static_PlayerManager_0.GetPlayer(Sender);
-                //string SenderPlayer = player != null ? player.prop_APIUser_0.displayName : "";
+                int Sender = __0.sender;
+                var player = PlayerManager.field_Private_Static_PlayerManager_0.GetPlayer(Sender);
+                string SenderPlayer = player != null ? player.prop_APIUser_0.displayName : "";
                 byte code = __0.Code;
 
                 if (code == 1 || code == 6 || code == 7 || code == 9 || code == 209 || code == 210)
@@ -160,7 +160,7 @@ namespace ReModCE.Components
                             {
                                 DateTime value = DateTime.Now.AddSeconds(num);
                                 BlockedSpam.Add(code, value);
-                                ReLogger.Msg($"[event {code}] prevented spam for {num} seconds");
+                                ReLogger.Msg($"[event {code}] {SenderPlayer} prevented spam for {num} seconds");
                                 return false;
                             }
                             SpamAmount[code] = 0;
